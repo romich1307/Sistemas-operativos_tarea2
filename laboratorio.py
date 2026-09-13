@@ -208,3 +208,22 @@ def guardar_resultados(resultados, n, io_wait):
             )
 
     print("\nResultados guardados en resultados.txt")
+    
+# ============================================================
+# PARTE B - SUPERVISOR
+# ============================================================
+
+def tarea_hija(numero):
+
+    print(
+        f"Hijo {numero} iniciado | "
+        f"PID={os.getpid()} | "
+        f"Hora={datetime.now().strftime('%H:%M:%S')}"
+    )
+
+    time.sleep(2)
+
+    print(
+        f"Hijo {numero} terminando | "
+        f"PID={os.getpid()}"
+    )

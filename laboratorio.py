@@ -266,3 +266,99 @@ def supervisor():
             f"PID {proceso.pid} terminó | "
             f"Código de salida={proceso.exitcode}"
         )
+        
+# ============================================================
+# PROGRAMA PRINCIPAL
+# ============================================================
+
+if __name__ == "__main__":
+
+    N = 20_000_000
+    IO_WAIT = 2
+
+    print("=" * 50)
+    print("INFORMACIÓN DE LA PLATAFORMA")
+    print("=" * 50)
+
+    print(
+        f"Sistema operativo: "
+        f"{platform.system()} {platform.release()}"
+    )
+
+    print(
+        f"Procesador: "
+        f"{platform.processor() or 'No identificado'}"
+    )
+
+    print(
+        f"Núcleos lógicos: {os.cpu_count()}"
+    )
+
+    print(
+        f"Python: {platform.python_version()}"
+    )
+
+    resultados = {}
+
+    print("\n" + "=" * 50)
+    print("PARTE A - CARGA DE CPU")
+    print("=" * 50)
+
+    resultados["CPU Secuencial"] = medir(
+        "CPU Secuencial",
+        cpu_secuencial,
+        N
+    )
+
+    resultados["CPU Threads"] = medir(
+        "CPU Threads",
+        cpu_threads,
+        N
+    )
+
+    resultados["CPU Procesos"] = medir(
+        "CPU Procesos",
+        cpu_procesos,
+        N
+    )
+
+    print("\n" + "=" * 50)
+    print("PARTE A - CARGA DE E/S")
+    print("=" * 50)
+
+    resultados["E/S Secuencial"] = medir(
+        "E/S Secuencial",
+        io_secuencial,
+        IO_WAIT
+    )
+
+    resultados["E/S Threads"] = medir(
+        "E/S Threads",
+        io_threads,
+        IO_WAIT
+    )
+
+    resultados["E/S Procesos"] = medir(
+        "E/S Procesos",
+        io_procesos,
+        IO_WAIT
+    )
+
+    print("\n" + "=" * 50)
+    print("RESUMEN DE MEDIANAS")
+    print("=" * 50)
+
+    for nombre, (_, mediana) in resultados.items():
+
+        print(
+            f"{nombre:<20}: "
+            f"{mediana:.6f} s"
+        )
+
+    guardar_resultados(
+        resultados,
+        N,
+        IO_WAIT
+    )
+
+    supervisor()

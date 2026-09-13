@@ -16,3 +16,6 @@ def suma_cuadrados(inicio, fin):
         suma += i * i
 
     return suma
+
+def tarea_io(segundos):
+    time.sleep(segundos)

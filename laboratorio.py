@@ -92,3 +92,20 @@ def io_threads(segundos):
 
     t1.join()
     t2.join()
+    
+def io_procesos(segundos):
+    p1 = multiprocessing.Process(
+        target=tarea_io,
+        args=(segundos,)
+    )
+
+    p2 = multiprocessing.Process(
+        target=tarea_io,
+        args=(segundos,)
+    )
+
+    p1.start()
+    p2.start()
+
+    p1.join()
+    p2.join()

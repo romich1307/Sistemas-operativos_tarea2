@@ -67,3 +67,11 @@ def cpu_procesos(n):
 
     p1.join()
     p2.join()
+    
+# ============================================================
+# PRUEBAS DE E/S
+# ============================================================
+
+def io_secuencial(segundos):
+    tarea_io(segundos)
+    tarea_io(segundos)

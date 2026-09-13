@@ -29,3 +29,22 @@ def cpu_secuencial(n):
 
     suma_cuadrados(0, mitad)
     suma_cuadrados(mitad, n)
+    
+def cpu_threads(n):
+    mitad = n // 2
+
+    t1 = threading.Thread(
+        target=suma_cuadrados,
+        args=(0, mitad)
+    )
+
+    t2 = threading.Thread(
+        target=suma_cuadrados,
+        args=(mitad, n)
+    )
+
+    t1.start()
+    t2.start()
+
+    t1.join()
+    t2.join()

@@ -1,0 +1,71 @@
+RESULTADOS DEL LABORATORIO
+==================================================
+
+PLATAFORMA
+Sistema operativo: Windows 10
+Procesador: AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD
+Núcleos lógicos: 8
+Versión de Python: 3.12.0rc3
+Carga CPU (N): 20000000
+Espera E/S por tarea: 2 s
+Repeticiones por prueba: 5
+
+MEDIANAS
+--------------------------------------------------
+CPU Secuencial: 1.691359 s
+CPU Threads: 1.946203 s
+CPU Procesos: 1.019102 s
+E/S Secuencial: 4.001239 s
+E/S Threads: 2.001228 s
+E/S Procesos: 2.161688 s
+
+MEDICIONES COMPLETAS
+--------------------------------------------------
+
+CPU Secuencial
+  Repetición 1: 1.691359 s
+  Repetición 2: 1.544113 s
+  Repetición 3: 1.611912 s
+  Repetición 4: 1.726216 s
+  Repetición 5: 2.281890 s
+  Mediana: 1.691359 s
+
+CPU Threads
+  Repetición 1: 1.946203 s
+  Repetición 2: 2.008345 s
+  Repetición 3: 2.026139 s
+  Repetición 4: 1.914134 s
+  Repetición 5: 1.903202 s
+  Mediana: 1.946203 s
+
+CPU Procesos
+  Repetición 1: 1.017342 s
+  Repetición 2: 1.065452 s
+  Repetición 3: 1.045021 s
+  Repetición 4: 1.019102 s
+  Repetición 5: 1.004955 s
+  Mediana: 1.019102 s
+
+E/S Secuencial
+  Repetición 1: 4.000569 s
+  Repetición 2: 4.001333 s
+  Repetición 3: 4.001239 s
+  Repetición 4: 4.001761 s
+  Repetición 5: 4.000708 s
+  Mediana: 4.001239 s
+
+E/S Threads
+  Repetición 1: 2.001695 s
+  Repetición 2: 2.000926 s
+  Repetición 3: 2.001156 s
+  Repetición 4: 2.001319 s
+  Repetición 5: 2.001228 s
+  Mediana: 2.001228 s
+
+E/S Procesos
+  Repetición 1: 2.161688 s
+  Repetición 2: 2.158349 s
+  Repetición 3: 2.163313 s
+  Repetición 4: 2.162100 s
+  Repetición 5: 2.157939 s
+  Mediana: 2.161688 s

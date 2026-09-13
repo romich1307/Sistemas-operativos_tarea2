@@ -19,3 +19,13 @@ def suma_cuadrados(inicio, fin):
 
 def tarea_io(segundos):
     time.sleep(segundos)
+    
+# ============================================================
+# PRUEBAS DE CPU
+# ============================================================
+
+def cpu_secuencial(n):
+    mitad = n // 2
+
+    suma_cuadrados(0, mitad)
+    suma_cuadrados(mitad, n)

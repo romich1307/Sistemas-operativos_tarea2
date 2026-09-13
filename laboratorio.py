@@ -227,3 +227,42 @@ def tarea_hija(numero):
         f"Hijo {numero} terminando | "
         f"PID={os.getpid()}"
     )
+    
+def supervisor():
+
+    print("\n" + "=" * 50)
+    print("PARTE B - SUPERVISOR")
+    print("=" * 50)
+
+    procesos = []
+
+    for numero in range(1, 3):
+
+        proceso = multiprocessing.Process(
+            target=tarea_hija,
+            args=(numero,)
+        )
+
+        proceso.start()
+
+        print(
+            f"Supervisor registró hijo {numero}: "
+            f"PID={proceso.pid} | "
+            f"Inicio={datetime.now().strftime('%H:%M:%S')}"
+        )
+
+        procesos.append(proceso)
+
+    print(
+        "\nSupervisor esperando "
+        "la terminación de los hijos...\n"
+    )
+
+    for proceso in procesos:
+
+        proceso.join()
+
+        print(
+            f"PID {proceso.pid} terminó | "
+            f"Código de salida={proceso.exitcode}"
+        )

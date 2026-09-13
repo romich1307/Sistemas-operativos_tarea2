@@ -140,3 +140,71 @@ def medir(nombre, funcion, argumento):
     print(f"Mediana: {mediana:.6f} segundos")
 
     return tiempos, mediana
+
+def guardar_resultados(resultados, n, io_wait):
+
+    with open("resultados.txt", "w", encoding="utf-8") as archivo:
+
+        archivo.write("RESULTADOS DEL LABORATORIO\n")
+        archivo.write("=" * 50 + "\n\n")
+
+        archivo.write("PLATAFORMA\n")
+
+        archivo.write(
+            f"Sistema operativo: "
+            f"{platform.system()} {platform.release()}\n"
+        )
+
+        archivo.write(
+            f"Procesador: "
+            f"{platform.processor() or 'No identificado'}\n"
+        )
+
+        archivo.write(
+            f"Núcleos lógicos: {os.cpu_count()}\n"
+        )
+
+        archivo.write(
+            f"Versión de Python: "
+            f"{platform.python_version()}\n"
+        )
+
+        archivo.write(
+            f"Carga CPU (N): {n}\n"
+        )
+
+        archivo.write(
+            f"Espera E/S por tarea: {io_wait} s\n"
+        )
+
+        archivo.write(
+            "Repeticiones por prueba: 5\n\n"
+        )
+
+        archivo.write("MEDIANAS\n")
+        archivo.write("-" * 50 + "\n")
+
+        for nombre, (_, mediana) in resultados.items():
+            archivo.write(
+                f"{nombre}: {mediana:.6f} s\n"
+            )
+
+        archivo.write("\nMEDICIONES COMPLETAS\n")
+        archivo.write("-" * 50 + "\n")
+
+        for nombre, (tiempos, mediana) in resultados.items():
+
+            archivo.write(f"\n{nombre}\n")
+
+            for i, tiempo in enumerate(tiempos, start=1):
+
+                archivo.write(
+                    f"  Repetición {i}: "
+                    f"{tiempo:.6f} s\n"
+                )
+
+            archivo.write(
+                f"  Mediana: {mediana:.6f} s\n"
+            )
+
+    print("\nResultados guardados en resultados.txt")

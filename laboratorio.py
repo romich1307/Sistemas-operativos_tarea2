@@ -109,3 +109,34 @@ def io_procesos(segundos):
 
     p1.join()
     p2.join()
+    
+# ============================================================
+# MEDICIÓN
+# ============================================================
+
+def medir(nombre, funcion, argumento):
+    tiempos = []
+
+    print(f"\n--- {nombre} ---")
+
+    for repeticion in range(5):
+
+        inicio = time.perf_counter()
+
+        funcion(argumento)
+
+        fin = time.perf_counter()
+
+        tiempo = fin - inicio
+        tiempos.append(tiempo)
+
+        print(
+            f"Repetición {repeticion + 1}: "
+            f"{tiempo:.6f} segundos"
+        )
+
+    mediana = statistics.median(tiempos)
+
+    print(f"Mediana: {mediana:.6f} segundos")
+
+    return tiempos, mediana

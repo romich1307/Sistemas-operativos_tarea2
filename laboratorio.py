@@ -75,3 +75,20 @@ def cpu_procesos(n):
 def io_secuencial(segundos):
     tarea_io(segundos)
     tarea_io(segundos)
+    
+def io_threads(segundos):
+    t1 = threading.Thread(
+        target=tarea_io,
+        args=(segundos,)
+    )
+
+    t2 = threading.Thread(
+        target=tarea_io,
+        args=(segundos,)
+    )
+
+    t1.start()
+    t2.start()
+
+    t1.join()
+    t2.join()

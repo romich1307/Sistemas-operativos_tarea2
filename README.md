@@ -240,11 +240,6 @@ Sistemas-operativos_tarea2/
 ├── laboratorio.py
 ├── resultados.txt
 ├── README.md
-│
-├── informe/
-│   └── Informe_Procesos_Threads.pdf
-│
-└── capturas/
 ```
 
 ### `laboratorio.py`
